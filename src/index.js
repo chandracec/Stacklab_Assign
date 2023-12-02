@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const router = require('../src/routes/route');
 const { logMiddleware } = require('../src/middleware/logMiddleware');
-const { specs, swaggerUi } = require('../src/swagger/swagger');
-require('dotenv').config();
+const { specs, swaggerUi } = require('../src/config/swagger');
+const connectToMongoDB = require('../src/config/mongodb');
 
 const app = express();
 
@@ -19,14 +19,7 @@ app.use(helmet());
 app.use(logMiddleware);
 
 // Connect to MongoDB
-mongoose
-  .connect('mongodb+srv://chandrakant91550:85A3tszzv0FScC1w@cluster0.lcv0ktb.mongodb.net/Blogging_Assign',)
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+connectToMongoDB()
 
 // Routes middleware
 app.use('/', router);
