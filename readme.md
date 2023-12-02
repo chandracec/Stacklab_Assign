@@ -48,8 +48,10 @@
     ```
 3. **Create ENV File :**
 ```
-- create a .dotenv  file and save two variable 
-- PORT= PORT_NUMBER and MONGO_URI = MONGODB Connection String
+- create a .dotenv  file and save  variable 
+- PORT= PORT_NUMBER 
+- MONGO_URI = MONGODB Connection String
+- SECRET_KEY = ANYKEY
 ```
 3. **Run the application:**
 
@@ -114,7 +116,6 @@ The `Blog Post` model in this project is designed to store information about ind
 ##  Swagger_Documentation
 
 ### Access the Swagger documentation to explore and test the API endpoints.
-![SwaggerUI](https://pasteboard.co/Kh3QMj9LKc2g.png)
 
 [Swagger Documentation](http://localhost:3000/api-docs)
 
