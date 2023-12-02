@@ -1,4 +1,4 @@
-#                   <center> StackLab Blog Assignment
+#             <center> StackLab Blog Assignment
 
 
 ## Table of Contents
@@ -16,8 +16,11 @@
 
 ## Introduction
 
- ### This is  a Node.js-based platform that empowers users to create, manage, and interact with blog posts. With robust CRUD operations, input validation, and middleware for enhanced functionality, this  application ensures a seamless and secure blogging experience. The implementation of request logging and error handling adds efficiency, while hashed author names and a simple authentication mechanism prioritize data security. Explore the Swagger documentation to get started and unleash the potential of this versatile blogging platform.
+This is  a Node.js-based platform that empowers users to create, manage, and interact with blog posts. With robust CRUD operations, input validation, and middleware for enhanced functionality, this  application ensures a seamless and secure blogging experience. The implementation of request logging and error handling adds efficiency, while hashed author names and a simple authentication mechanism prioritize data security. 
 
+### Explore the Swagger documentation to get started and unleash the potential of this versatile blogging platform.
+
+### An additional API has been built  GET/logs that gives logs in paginated format 
 ## Setup
 
 1. **Initialize a new Node.js project:**
@@ -26,6 +29,7 @@
     npm init -y
     ```
 2. **Install necessary packages:**
+
     ```bash 
     npm install express mongoose dotenv 
 3. **Connect to MongoDB:**
@@ -116,7 +120,7 @@ The `Blog Post` model in this project is designed to store information about ind
 ##  Swagger_Documentation
 
 ### Access the Swagger documentation to explore and test the API endpoints.
-
+![Screenshot (106)](https://github.com/chandracec/Stacklab_Assign/assets/50081484/28b0a3bc-4ec0-448d-bbcc-50a727f16998)
 [Swagger Documentation](http://localhost:3000/api-docs)
 
 Make sure your application is running when you access the Swagger documentation link.

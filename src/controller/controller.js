@@ -66,7 +66,7 @@ async function getBlogById(req, res, next) {
   }
 }
 //=======================================================================================================
-// Update a blog post by ID
+ // Update a blog post by ID
 async function updateBlogById(req, res, next) {
   try {
     const { title, content, author } = req.body;
@@ -80,19 +80,21 @@ async function updateBlogById(req, res, next) {
     // Hash the author's name
     const hashedAuthor = author ? await bcrypt.hash(author, saltRounds) : undefined;
 
+    // Modify the query to exclude deleted blogs
     const updateObject = {};
     if (title) updateObject.title = title;
     if (content) updateObject.content = content;
     if (author) updateObject.author = hashedAuthor;
 
-    const updatedBlogPost = await BlogPost.findByIdAndUpdate(
-      blogId,
+    // Exclude blogs with isDeleted true
+    const updatedBlogPost = await BlogPost.findOneAndUpdate(
+      { _id: blogId, isDeleted: false },
       updateObject,
       { new: true }
     );
 
     if (!updatedBlogPost) {
-      return res.status(404).json({ error: "Blog doesn't exist with this ID" });
+      return res.status(404).json({ error: "Blog doesn't exist with this ID or has been deleted" });
     }
 
     res.status(200).json({ message: "Blog updated successfully" });
@@ -101,6 +103,7 @@ async function updateBlogById(req, res, next) {
     next(err);
   }
 }
+
 //====================================================================================================
 // Delete a blog post by ID
 async function deleteBlogById(req, res, next) {
