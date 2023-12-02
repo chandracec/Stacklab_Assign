@@ -15,14 +15,20 @@
 - [License](#license)
 
 ## Introduction
-
+<span style="color:cyan;"> 
 This is  a Node.js-based platform that empowers users to create, manage, and interact with blog posts. With robust CRUD operations, input validation, and middleware for enhanced functionality, this  application ensures a seamless and secure blogging experience. The implementation of request logging and error handling adds efficiency, while hashed author names and a simple authentication mechanism prioritize data security. 
-
-### Explore the Swagger documentation to get started and unleash the potential of this versatile blogging platform.
-
-### An additional API has been built  GET/logs that gives logs in paginated format 
+</span>
+<hr>
+<span style="color:magenta;"> 
+Explore the Swagger documentation to get started and unleash the potential of this versatile blogging platform.
+</span>
+<hr>
+<span style="color:#F7CAC9;"> 
+ An additional API has been built  GET/logs that gives logs in paginated format 
 ## Setup
+</span>
 
+## Setup
 1. **Initialize a new Node.js project:**
 
     ```bash
