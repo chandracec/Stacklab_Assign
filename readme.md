@@ -25,7 +25,6 @@ Explore the Swagger documentation to get started and unleash the potential of th
 <hr>
 <span style="color:#F7CAC9;"> 
  An additional API has been built  GET/logs that gives logs in paginated format 
-## Setup
 </span>
 
 ## Setup

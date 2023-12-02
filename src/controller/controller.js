@@ -123,24 +123,35 @@ async function deleteBlogById(req, res, next) {
 }
 
 //==================================================================================================
-// Get logs with query as page = pagenumber + limit is 10 by default
+ // Get logs with pagination (default page = 1, default limit = 10)
 const getLogs = async (req, res) => {
   try {
+    // Parse page and limit from query parameters or use default values
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
+
+    // Calculate the number of documents to skip based on the page and limit
     const skip = (page - 1) * limit;
 
+    // Fetch logs from the database, sorted by timestamp in descending order
     const logs = await logModel.find()
-      .sort({ timestamp: -1 })
       .skip(skip)
       .limit(limit);
 
-    res.json(logs);
+    // Send the logs and pagination metadata as JSON response
+    res.json({
+      logs
+    });
   } catch (error) {
+    // Handle errors during log retrieval
     console.error('Error fetching logs:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+// Export the getLogs function
+module.exports = { getLogs };
+
 //===================================================================================================
 module.exports = {
   createBlog,

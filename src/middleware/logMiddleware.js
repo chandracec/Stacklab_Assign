@@ -42,6 +42,7 @@ async function logMiddleware(req, res, next) {
     try {
       // Save the log entry to the database
       await logModel.create(logEntry);
+      console.log("Created log")
     } catch (error) {
       // Handle any potential error while saving to the database
       console.error('Error saving log entry:', error);
